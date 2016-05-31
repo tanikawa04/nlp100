@@ -9,3 +9,7 @@ out-*
 
 jawiki-country.json.gz
 britain.txt
+
+neko.txt
+neko.txt.mecab
+neko_morphemes.json
