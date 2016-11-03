@@ -14,14 +14,13 @@ class Morph:
         return self.__str__()
 
     @staticmethod
-    def parse(cabocha_sent):
-        lines = cabocha_sent.split('\n')
-        morphs = []
+    def parse(cabocha_morph):
+        surface, feature = cabocha_morph.split('\t')
+        elems = feature.split(',')
+        return Morph(surface, elems[6], elems[0], elems[1])
 
-        for line in lines:
-            if not line.startswith('*'):
-                surface, feature = line.split('\t')
-                elems = feature.split(',')
-                morphs.append(Morph(surface, elems[6], elems[0], elems[1]))
 
-        return morphs
+if __name__ == '__main__':
+    cabocha_txt = '名前\t名詞,一般,*,*,*,*,名前,ナマエ,ナマエ'
+
+    print(Morph.parse(cabocha_txt))
